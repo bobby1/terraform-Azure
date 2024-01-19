@@ -1,4 +1,4 @@
-# terraform-with-ansible
+# Microsoft Azure resources using terraform
 This code is a basic demonstration of ways to create Structured Design Life Cycle (SDLC) deployment cloud environments with minimum effort.  The code uses terraform to create a Microsoft Azure Kubernetes cluster.  A basic cluster with monitoring exposed with a public IP illustrates IaC using Azure.
 
 ## Design Principles
