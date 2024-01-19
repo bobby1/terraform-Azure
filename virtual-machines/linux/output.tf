@@ -13,7 +13,7 @@
 ###
 ### Developer: 	Bobby Wen, bobby@wen.org
 ###======================================================================================
-ata "azurerm_public_ip" "pip" {
+data "azurerm_public_ip" "pip" {
   name                = azurerm_public_ip.pip.name
   resource_group_name = azurerm_linux_virtual_machine.main.resource_group_name
 }

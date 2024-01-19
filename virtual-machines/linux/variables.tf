@@ -33,12 +33,18 @@ variable "prefix" {
 
 variable "location" {
   description = "The Azure Region in which all resources in this environment should be provisioned"
-  type = map(string)
+  type        = map(string)
   default = {
     dev = "westus"
     stg = "westus2"
     prd = "westus3"
   }
+}
+
+variable "instance_name" {
+  description = "Value of the Name tag for the instance"
+  type        = string
+  default     = "DevOps tools team test"
 }
 
 variable "az_instance_type" {
@@ -48,6 +54,18 @@ variable "az_instance_type" {
     dev = "Standard_B1s"     ### 1 vCPU, 1 GiB RAM (freetier)
     stg = "Standard_Bats_v2" ### 2 vCPU, 1 GiB RAM (freetier)
     prd = "Standard_DS2_v2"
+  }
+}
+
+variable "ingress_cidr_blocks" {
+  description = "CIDR blocks to allow in the security group"
+  type        = map(list(string))
+  default = {
+    ### 67.174.209.57/32 is an access IP address DEBUG
+    dev = ["67.174.209.57/32", ]
+    ### 54.86.126.30/24 is a company's IP address range  ### DEBUG
+    stg = ["54.86.126.30/24", ]
+    prd = ["0.0.0.0/0", ]
   }
 }
 

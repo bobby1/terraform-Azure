@@ -18,7 +18,7 @@ provider "azurerm" {
 }
 
 resource "azurerm_resource_group" "main" {
-  name = "${var.prefix}-resources"
+  name     = "${var.prefix}-resources"
   location = var.location[var.environment]
   tags     = local.tags
 }
@@ -78,6 +78,8 @@ resource "azurerm_network_security_group" "ssh" {
   resource_group_name = azurerm_resource_group.main.name
   tags = merge(local.tags, {
     security = "SSH inbound from allowed IPs"
+  })
+
   security_rule {
     access                     = "Allow"
     direction                  = "Inbound"
@@ -101,15 +103,15 @@ resource "azurerm_linux_virtual_machine" "main" {
   location            = azurerm_resource_group.main.location
   resource_group_name = azurerm_resource_group.main.name
   tags                = local.tags
-  size           = var.az_instance_type[var.environment]
-  admin_username = "adminuser"
-  admin_password = "MyP@ssw0rd2024!"
+  size                = var.az_instance_type[var.environment]
+  admin_username      = "adminuser"
+  admin_password      = "MyP@ssw0rd2024!"
   network_interface_ids = [
     azurerm_network_interface.main.id,
   ]
 
   admin_ssh_key {
-    username = "adminuser"
+    username   = "adminuser"
     public_key = file("../../../../id_rsa.pub")
   }
 
