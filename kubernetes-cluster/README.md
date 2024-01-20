@@ -1,5 +1,5 @@
-# terraform-with-ansible
-This code is a basic demonstration of ways to create Structured Design Life Cycle (SDLC) deployment cloud environments with minimum effort.  The code uses terraform to create a Microsoft Azure resources.  Kubernetes and VM cluster illustrates IaC with Azure.
+# terraform-Azure-kubernetes-Cluster
+This code is a basic demonstration of ways to create Structured Design Life Cycle (SDLC) deployment cloud environments with minimum effort.  The code uses terraform to create a Microsoft Azure Kubernetes and VM cluster demonstrating IaC with Azure.
 
 ## Design Principles
 * Reusable code: The same code base is used for all environment; implementation differences are set based on the environment or tier for the SDLC.
@@ -10,13 +10,13 @@ This code is a basic demonstration of ways to create Structured Design Life Cycl
 
   ** This is an alternative to terraform workspace and does not require workspace setup
 
-* Secure: The code show examples of how to secure user account and application accessibility based on environments.
+* Secure: The code shows examples of how to secure user accounts and application accessibility based on environments.
   
-  ** Secure Shell Protocol (SSH) keys can be pre-configured and installed on the server to allow secure sessions with the all the server instances.
+  ** Secure Shell Protocol (SSH) keys can be pre-configured and installed on the server to allow secure sessions with all the server instances.
   
   ** Access to the server instances is limited based on the environment.  Dev can be configured to only allow developer access.  Stg can be configured to only allow corporate user access.  Prd can be configured to allow general Internet access.
 
-* Flexible: The code can be customized for individual environments, based on your application needs, for example.  the Azure  instance type for each tier can be preconfigure, without the need to have project specify them for every region. Additional configuration parameters are already in the code to allow for easy customization.  
+* Flexible: The code can be customized for individual environments, based on your application needs, for example.  the Azure instance type for each tier can be pre-configure, without the need to have the project specify them for every region. Additional configuration parameters are already in the code to allow for easy customization.  
   
 * Auditable: The code creates output and logging where possible.
   ** The public IP and DNS name for servers’ instances created are output in Terraform to allow easy access to the new instance

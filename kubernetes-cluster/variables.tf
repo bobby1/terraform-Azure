@@ -33,7 +33,7 @@ variable "environment" {
 
 variable "location" {
   description = "The Azure Region in which all resources in this environment should be provisioned"
-  type = map(string)
+  type        = map(string)
   default = {
     dev = "westus"
     stg = "westus2"
@@ -74,8 +74,7 @@ variable "ingress_cidr_blocks" {
   default = {
     ### 67.174.209.57/32 is an access IP address DEBUG
     dev = ["67.174.209.57/32", ]
-    ### 54.86.126.30/24 is a company's IP address range  ### DEBUG
-    stg = ["54.86.126.30/24", ]
+    stg = ["54.86.126.30/24", "67.174.209.57/32", ]
     prd = ["0.0.0.0/0", ]
   }
 }
@@ -83,7 +82,7 @@ variable "ingress_cidr_blocks" {
 variable "instance_name" {
   description = "Value of the Name tag for the instance"
   type        = string
-  default     = "DevOps tools team test"
+  default     = "DevOps tools team"
 }
 
 locals {
