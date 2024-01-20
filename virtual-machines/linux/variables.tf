@@ -69,6 +69,18 @@ variable "ingress_cidr_blocks" {
   }
 }
 
+variable "admin_username" {
+  description = "Username for the Administrator account"
+  type        = string
+  default     = "adminuser"
+}
+
+variable "admin_password" {
+  description = "Password for the Administrator account"
+  type        = string
+  default     = "AZPassword230118!"
+}
+
 locals {
   tags = {
     project     = var.project_name

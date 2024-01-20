@@ -104,8 +104,8 @@ resource "azurerm_linux_virtual_machine" "main" {
   resource_group_name = azurerm_resource_group.main.name
   tags                = local.tags
   size                = var.az_instance_type[var.environment]
-  admin_username      = "adminuser"
-  admin_password      = "MyP@ssw0rd2024!"
+  admin_username      = var.admin_username
+  admin_password      = var.admin_password
   network_interface_ids = [
     azurerm_network_interface.main.id,
   ]
