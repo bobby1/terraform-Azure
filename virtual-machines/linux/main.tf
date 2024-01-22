@@ -2,7 +2,7 @@
 ### Copyright (c) 2024, Bobby Wen, All Rights Reserved 
 ### Use of this source code is governed by a MIT-style
 ### license that can be found at https://en.wikipedia.org/wiki/MIT_License.
-### Project:		Microsoft Azurerm Kubernetes examples 
+### Project:		Microsoft Azurerm examples
 ### Class:			Terraform Azurerm IaC file
 ### Purpose:    Terraform script to create Microsoft Azure Linux server with a public IP
 ### Usage:			terraform (init|plan|apply|destroy)

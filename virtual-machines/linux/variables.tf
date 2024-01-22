@@ -2,7 +2,7 @@
 ### Copyright (c) 2024, Bobby Wen, All Rights Reserved 
 ### Use of this source code is governed by a MIT-style
 ### license that can be found at https://en.wikipedia.org/wiki/MIT_License.
-### Project:		Microsoft Azurerm Kubernetes examples 
+### Project:		Microsoft Azurerm examples
 ### Class:			Terraform Azurerm IaC file
 ### Purpose:    Terraform script to create Microsoft Azure Linux server with a public IP
 ### Usage:			terraform (init|plan|apply|destroy)
@@ -51,8 +51,10 @@ variable "az_instance_type" {
   description = "EC2 instance type"
   type        = map(string)
   default = {
-    dev = "Standard_B1s"     ### 1 vCPU, 1 GiB RAM (freetier)
-    stg = "Standard_Bats_v2" ### 2 vCPU, 1 GiB RAM (freetier)
+    dev = "Standard_B1s"     
+    ### 1 vCPU, 1 GiB RAM (freetier)
+    stg = "Standard_Bats_v2" 
+    ### 2 vCPU, 1 GiB RAM (freetier)
     prd = "Standard_DS2_v2"
   }
 }
