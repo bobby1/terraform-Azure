@@ -1,8 +1,20 @@
-# Copyright (c) HashiCorp, Inc.
-# SPDX-License-Identifier: MPL-2.0
-
+###======================================================================================
+### Copyright (c) 2024, Bobby Wen, All Rights Reserved 
+### Use of this source code is governed by a MIT-style
+### license that can be found at https://en.wikipedia.org/wiki/MIT_License.
+### Project:		Microsoft Azurerm examples 
+### Class:			Terraform Azurerm IaC file
+### Purpose:    Terraform script to create Microsoft Azure Windows server with Active directory controller
+### Usage:			terraform (init|plan|apply|destroy)
+### Pre-requisites:	Azure subscription (https://azure.microsoft.com/en-us/), 
+###                 Terraform by HashiCorp (https://www.terraform.io/)
+### Beware:     Variables.tf file is used to pass environment variable to main.tf.  
+###             Depending on SDLC environmental setting, different attributes are passed to create the stack 
+###
+### Developer: 	Bobby Wen, bobby@wen.org
+###======================================================================================
 resource "azurerm_network_interface" "dc_nic" {
-  name                = join("-", [var.prefix, "dc-primary"])
+  name                = join("-", [var.prefix, "dc-nic"])
   location            = var.location
   resource_group_name = var.resource_group_name
   ip_configuration {
@@ -15,8 +27,9 @@ resource "azurerm_network_interface" "dc_nic" {
 
 resource "azurerm_windows_virtual_machine" "domain-controller" {
   name                = local.virtual_machine_name
-  resource_group_name = var.resource_group_name
   location            = var.location
+  resource_group_name = var.resource_group_name
+  ###  Azure VM size for Active Directory Domain Controller is Standard_F2
   size                = "Standard_F2"
   admin_username      = var.admin_username
   admin_password      = var.admin_password
