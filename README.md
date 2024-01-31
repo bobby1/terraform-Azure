@@ -44,9 +44,11 @@ To use this code base, Azure subscription, and Terraform are required to be inst
   $ terraform validate
 
   $ terraform plan  
+
         $ terraform plan -out <filename>  is recommended but not required
 
   $ terraform apply
+  
         $ terraform apply <filename>  if -out was used
   
  Once the server instance is created, terraform will output the server’s name and IP.  You can retrieve this output at any time after creating the instances by running 
