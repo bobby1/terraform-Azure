@@ -45,23 +45,14 @@ To use this code base, Azure subscription, and Terraform are required to be inst
   $ terraform apply
         $ terraform apply <filename>  if -out was used
   
- Once the server instance is created, terraform will output the server’s name and IP.  You can retrieve this output at any time after creating the instances by running 
-  
-   $ terraform output
-  
-Once you have the new instance DNS name information, connect to each instance to ensure your connection and ssh keys work.
-
-for example:  
-  ssh adminuser@01.02.03.04
-  and accept the server ssh key into the ssh known-hosts
  
-  or
-  
-  ssh -o StrictHostKeyChecking=accept-new adminuser@01.02.03.04    
-  to automatically accept the ssh key
+ To view the Kubernetes cluster information, go to the Azure console Kubernetes service page,  https://portal.azure.com/#view/HubsExtension/BrowseResource/resourceType/Microsoft.ContainerService%2FmanagedClusters to view the newly created K8 cluster.
+ 
 
 If you no longer need the stack,  you can clean up the by using
   $ terraform destroy -auto-approve
+
+* NOTE: You need to have the necessary VM quote to configure the cluster, depending on the VM configures.  You may need to request quota for the virtual machine, based on your Azure subscription.
 
 ## Roadmap
 
