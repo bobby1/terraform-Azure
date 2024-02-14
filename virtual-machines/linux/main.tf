@@ -105,13 +105,19 @@ resource "azurerm_linux_virtual_machine" "main" {
   tags                = local.tags
   size                = var.az_instance_type[var.environment]
   admin_username      = var.admin_username
-  admin_password      = var.admin_password
+  ### There are many ways of securing secret information, including using a secrets.tfvars file, environmental variables and key management systems.  ### DEBUG
+  ### This example reads files outside of the code base, and the files are not checked in as part of the code.  ### DEBUG
+  ### This allow individual developers to use their own password.  ### DEBUG
+  admin_password = file("../../../../admin_password.txt")
   network_interface_ids = [
     azurerm_network_interface.main.id,
   ]
 
   admin_ssh_key {
     username   = "adminuser"
+    ### There are many ways of securing secret information, including using a secrets.tfvars file, environmental variables and key management systems.  ### DEBUG
+    ### This example reads files outside of the code base, and the files are not checked in as part of the code.  ### DEBUG
+    ### This allow individual developers to use their own key pair.  ### DEBUG
     public_key = file("../../../../id_rsa.pub")
   }
 

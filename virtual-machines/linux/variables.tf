@@ -44,16 +44,16 @@ variable "location" {
 variable "instance_name" {
   description = "Value of the Name tag for the instance"
   type        = string
-  default     = "DevOps tools team test"
+  default     = "DevOps tools team"
 }
 
 variable "az_instance_type" {
   description = "EC2 instance type"
   type        = map(string)
   default = {
-    dev = "Standard_B1s"     
+    dev = "Standard_B1s"
     ### 1 vCPU, 1 GiB RAM (freetier)
-    stg = "Standard_Bats_v2" 
+    stg = "Standard_Bats_v2"
     ### 2 vCPU, 1 GiB RAM (freetier)
     prd = "Standard_DS2_v2"
   }
@@ -64,9 +64,9 @@ variable "ingress_cidr_blocks" {
   type        = map(list(string))
   default = {
     ### 67.174.209.57/32 is an access IP address DEBUG
-    dev = ["67.174.209.57/32", ]
+    dev = ["98.207.22.120/32", "67.174.209.57/32", ]
     ### 54.86.126.30/24 is a company's IP address range  ### DEBUG
-    stg = ["54.86.126.30/24", ]
+    stg = ["54.86.126.0/24", ]
     prd = ["0.0.0.0/0", ]
   }
 }
@@ -75,12 +75,6 @@ variable "admin_username" {
   description = "Username for the Administrator account"
   type        = string
   default     = "adminuser"
-}
-
-variable "admin_password" {
-  description = "Password for the Administrator account"
-  type        = string
-  default     = "AZPassword230118!"
 }
 
 locals {
