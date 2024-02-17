@@ -4,7 +4,7 @@ This code is a basic demonstration of ways to create Structured Design Life Cycl
 ## Design Principles
 * Reusable code: The same code base is used for all environment; implementation differences are set based on the environment or tier for the SDLC.
 * SDLC from the start: Development (dev), Staging (stg) and Production (prd) folders are available to allow checkout of the code to implement a project using all basic tiers at the beginning of a project.
-* Scalable:  the environment setting allows each environment to scale automatically.  Development environment use micro server instance (t2.micro) to service a small number of developers, staging environments uses medium server instances (t2.medium) to allow a large audience to test the application.  Production environments uses large server instances (t2.large) to be generally available to the Internet.
+* Scalable:  the environment setting allows each environment to scale automatically.  Development environments use micro server instance (Standard_B1s) to service a small number of developers, staging environments use medium server instances (Standard_Bats_v2) to allow a large audience to test the application.  Production environments use large server instances (Standard_DS2_v2) to be generally available to the Internet.
 
   ** In the same manner, dev environments will create two server instances.  Stg environments will create four server instances.  And Prd environments will create six server instances automatically
 
