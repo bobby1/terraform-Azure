@@ -34,9 +34,6 @@ To use this code base, Azure subscription, and Terraform are required to be inst
    * Terraform by HashiCorp (https://www.terraform.io/)
   
 ## How to use
-
-* To create the example environment using Terraform, in the SDLC directory for the environment to deploy, for example, dev
-
   $ terraform init
 
   $ terraform fmt
@@ -55,16 +52,19 @@ To use this code base, Azure subscription, and Terraform are required to be inst
   
    $ terraform output
   
-Once you have the new instance DNS name information, connect to each instance to ensure your connection and ssh keys work.
+Once you have the new instance DNS name information, connect to each Linux instance to ensure your connection and ssh keys work.
 
 for example:  
-  ssh ubuntu@01.02.03.04
+  ssh adminuser@01.02.03.04
   and accept the server SSH key into the SSH known-hosts
  
   or
   
-  ssh -o StrictHostKeyChecking=accept-new ubuntu@ec2-54-92-22-20.compute-1.amazonaws.com    
+  ssh -o StrictHostKeyChecking=accept-new adminuser@ec2-54-92-22-20.compute-1.amazonaws.com    
   to automatically accept the SSH key
+
+For Windows servers:
+Once the Windows client is provisioned, you can Remote Desktop to the server using the username adminuser and public IP to the server.
 
 If you no longer need the stack,  you can clean up by using $ terraform destroy -auto-approve
 
