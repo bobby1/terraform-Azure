@@ -27,10 +27,10 @@ This code is a basic demonstration of ways to create Structured Design Life Cycl
 
 ## Pre-requisites
 
-To use this code base, Azure subscription, and Terraform are required to be installed locally on the server.
+To use this code base, Azure subscription, Azure command line interface, and Terraform are required to be installed locally on the server.
 
    * Azure subscription (https://azure.microsoft.com/en-us/)
-  
+   * Azure CLI (https://learn.microsoft.com/en-us/cli/azure/install-azure-cli)  
    * Terraform by HashiCorp (https://www.terraform.io/)
   
 ## How to use
