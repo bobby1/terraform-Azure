@@ -13,6 +13,16 @@
 ###
 ### Developer: 	Bobby Wen, bobby@wen.org
 ###======================================================================================
+terraform {
+  required_providers {
+    azurerm = {
+      source = "hashicorp/azurerm"
+      # version = "=3.0.0"
+      version = "=3.88.0"
+    }
+  }
+}
+
 provider "azurerm" {
   features {}
 }
@@ -39,9 +49,10 @@ module "active-directory-domain" {
   active_directory_domain_name  = "${var.prefix}.local"
   active_directory_netbios_name = var.prefix
   admin_username                = var.admin_username
-  admin_password                = var.admin_password
-  prefix                        = var.prefix
-  subnet_id                     = module.network.domain_controllers_subnet_id
+  # admin_password                = var.admin_password
+  admin_password = file("../../../../admin_password.txt")
+  prefix         = var.prefix
+  subnet_id      = module.network.domain_controllers_subnet_id
   ### NOTE: AD requires a larger VM size,  It is hard coded to Standard_F2  in modules/active-directory-domain/main.tf
 }
 
@@ -54,8 +65,10 @@ module "active-directory-member" {
   prefix                       = var.prefix
   active_directory_domain_name = "${var.prefix}.local"
   active_directory_username    = var.admin_username
-  active_directory_password    = var.admin_password
-  admin_username               = var.admin_username
-  admin_password               = var.admin_password
-  subnet_id                    = module.network.domain_members_subnet_id
+  # active_directory_password    = var.admin_password
+  active_directory_password = file("../../../../admin_password.txt")
+  admin_username            = var.admin_username
+  # admin_password               = var.admin_password
+  admin_password = file("../../../../admin_password.txt")
+  subnet_id      = module.network.domain_members_subnet_id
 }

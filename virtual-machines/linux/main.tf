@@ -114,7 +114,7 @@ resource "azurerm_linux_virtual_machine" "main" {
   ]
 
   admin_ssh_key {
-    username   = "adminuser"
+    username = "adminuser"
     ### There are many ways of securing secret information, including using a secrets.tfvars file, environmental variables and key management systems.  ### DEBUG
     ### This example reads files outside of the code base, and the files are not checked in as part of the code.  ### DEBUG
     ### This allow individual developers to use their own key pair.  ### DEBUG

@@ -63,11 +63,11 @@ variable "admin_username" {
   default     = "adminuser"
 }
 
-variable "admin_password" {
-  description = "Password for the Administrator account"
-  type        = string
-  default     = "AZPassword230118!"
-}
+# variable "admin_password" {
+#   description = "Password for the Administrator account"
+#   type        = string
+#   default     = "AZPassword230118!"
+# }
 
 locals {
   tags = {

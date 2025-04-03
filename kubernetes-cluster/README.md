@@ -49,7 +49,7 @@ To use this code base, Azure subscription, and Terraform are required to be inst
  To view the Kubernetes cluster information, go to the Azure console Kubernetes service page,  https://portal.azure.com/#view/HubsExtension/BrowseResource/resourceType/Microsoft.ContainerService%2FmanagedClusters to view the newly created K8 cluster.
  
 
-If you no longer need the stack,  you can clean up the by using
+If you no longer need the stack,  you can clean up by using
   $ terraform destroy -auto-approve
 
 * NOTE: You need to have the necessary VM quote to configure the cluster, depending on the VM configures.  You may need to request quota for the virtual machine, based on your Azure subscription.
